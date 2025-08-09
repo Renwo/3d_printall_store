@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetrina Prodotti</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Barra superiore */
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #222;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .menu-btn {
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        /* Drawer laterale */
+        .drawer {
+            position: fixed;
+            top: 60px;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+        }
+
+        .drawer a {
+            display: block;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .drawer a:hover {
+            background-color: #444;
+        }
+
+        /* Quando il drawer è aperto */
+        .drawer.open {
+            left: 0;
+        }
+
+        /* Contenuto principale */
+        .content {
+            margin-top: 60px;
+            padding: 20px;
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+        }
+
+        .drawer.open ~ .content {
+            margin-left: 250px;
+        }
+
+        /* Griglia prodotti */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .product h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+        }
+
+        .product p {
+            color: green;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra superiore -->
+    <div class="topbar">
+        <span class="menu-btn" onclick="toggleDrawer()">☰</span>
+        <img src="logo.png" alt="Logo" class="logo">
+    </div>
+
+    <!-- Drawer laterale -->
+    <div class="drawer" id="drawer">
+        <a href="#">Home</a>
+        <a href="#">Prodotti</a>
+        <a href="#">Offerte</a>
+        <a href="#">Contatti</a>
+    </div>
+
+    <!-- Contenuto principale -->
+    <div class="content">
+        <h1>Vetrina Prodotti</h1>
+        <div class="products">
+            <div class="product">
+                <img src="prodotto1.jpg" alt="Prodotto 1">
+                <h3>Prodotto 1</h3>
+                <p>€ 19,99</p>
+            </div>
+            <div class="product">
+                <img src="prodotto2.jpg" alt="Prodotto 2">
+                <h3>Prodotto 2</h3>
+                <p>€ 29,99</p>
+            </div>
+            <div class="product">
+                <img src="prodotto3.jpg" alt="Prodotto 3">
+                <h3>Prodotto 3</h3>
+                <p>€ 39,99</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDrawer() {
+            document.getElementById('drawer').classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
