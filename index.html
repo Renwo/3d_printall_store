@@ -166,6 +166,15 @@
         </div>
     </div>
 
+    <script>
+    // Seleziono tutte le card prodotto
+    document.querySelectorAll('.product').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('expanded');
+        });
+    });
+</script>
+
 </body>
 
 </html>
