@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,7 @@
             align-items: center;
             justify-content: center;
             z-index: 1000;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
@@ -40,7 +41,7 @@
             height: 100%;
             background: #2c3e50;
             padding-top: 20px;
-            box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
         }
 
         .drawer a {
@@ -75,14 +76,14 @@
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             text-align: center;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .product:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
 
         .product img {
@@ -103,8 +104,24 @@
             font-size: 16px;
             margin-bottom: 12px;
         }
+
+        .product .description {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 12px;
+            color: #555;
+        }
+
+        /* Quando la card è espansa */
+        .product.expanded .description {
+            max-height: 200px;
+            /* Altezza massima visibile */
+            padding: 12px;
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Barra superiore -->
@@ -125,7 +142,11 @@
             <div class="product">
                 <img src="prodotto1.jpg" alt="Prodotto 1">
                 <h3>Prodotto 1</h3>
-                <p>€ 19,99</p>
+                <p class="price">€ 19,99</p>
+                <div class="description">
+                    Questo è un prodotto eccezionale con caratteristiche uniche e materiali di alta qualità. Perfetto
+                    per uso quotidiano.
+                </div>
             </div>
             <div class="product">
                 <img src="prodotto2.jpg" alt="Prodotto 2">
@@ -146,4 +167,5 @@
     </div>
 
 </body>
+
 </html>
