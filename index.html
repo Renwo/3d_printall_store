@@ -10,6 +10,9 @@
             margin: 0;
             font-family: "Segoe UI", Arial, sans-serif;
             background-color: #f8f9fa;
+            overflow-y: auto;
+            height: "100%";
+            padding-bottom: 60px;
         }
 
         /* Barra superiore */
@@ -101,21 +104,24 @@
 
         .product img {
             width: 100%;
-            height: 160px;
+            
             object-fit: cover;
         }
 
         .product h3 {
-            margin: 12px 0 5px;
-            font-size: 18px;
+            margin: 5px;
+            font-size: 15px;
             color: #2c3e50;
         }
 
         .product p {
             color: #27ae60;
             font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 12px;
+            font-size: 18px;
+            margin-bottom: 5px;
+            display: flex;
+            margin-right: 5px;
+            justify-content: flex-end;
         }
 
         .product .description {
@@ -133,25 +139,30 @@
             padding: 12px;
         }
 
-        /* Sezione contatti */
-        .contact-section {
-            background: white;
-            padding: 30px;
-            margin-top: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        /* Banner fisso contatti */
+        .contact-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            color: white;
             text-align: center;
-        }
-
-        .contact-section h2 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .contact-section p {
+            padding: 12px 15px;
             font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
+            font-weight: bold;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+            z-index: 2000;
+        }
+
+        .contact-banner a {
+            color: yellow;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-banner a:hover {
+            text-decoration: underline;
         }
 
 
@@ -189,60 +200,53 @@
     <!-- Drawer laterale -->
     <div class="drawer">
         <a href="#">Prodotti</a>
-        <a href="#">Contatti</a>
+        <a href="https://www.instagram.com/3d_printall/" target="_blank">Seguimi</a>
+
     </div>
 
     <!-- Contenuto principale -->
     <div class="content">
-        <h1>Vetrina Prodotti</h1>
+        <h2>Vetrina Prodotti</h2>
         <div class="products">
             <div class="product">
-                <img src="prodotto1.jpg" alt="Prodotto 1">
-                <h3>Prodotto 1</h3>
-                <p class="price">€ 3,60</p>
+                <img src="assets/keychain_tondo.png" alt="Prodotto 1">
+                <h3>Portachiavi tondo - Acciaio lucido</h3>
+                <p class="price">€ 9,60</p>
                 <div class="description">
-                    Questo è un prodotto eccezionale con caratteristiche uniche e materiali di alta qualità. Perfetto
-                    per uso quotidiano.
+                    Portachiavi personalizzabile con incisione. Diametro 3cm
                 </div>
             </div>
             <div class="product">
-                <img src="prodotto1.jpg" alt="Prodotto 1">
-                <h3>Prodotto 2</h3>
-                <p class="price">€ 4,99</p>
+                <img src="assets/watch_stand.png" alt="Prodotto 2">
+                <h3>Supporto orologio con inserti in pelle</h3>
+                <p class="price">€ 12,00</p>
                 <div class="description">
-                    Questo è un prodotto eccezionale con caratteristiche uniche e materiali di alta qualità. Perfetto
-                    per uso quotidiano.
+                    Supporto per orologio stampato in 3D con inserti in eco pelle
                 </div>
             </div>
             <div class="product">
-                <img src="prodotto1.jpg" alt="Prodotto 1">
-                <h3>Prodotto 3</h3>
-                <p class="price">€ 15,00</p>
+                <img src="assets/ball.jpg" alt="Prodotto 3">
+                <h3>Palline di Natale</h3>
+                <p class="price">€ 6,00</p>
                 <div class="description">
-                    Questo è un prodotto eccezionale con caratteristiche uniche e materiali di alta qualità. Perfetto
-                    per uso quotidiano.
+                    Palline in vetro personalizzate con confezione
                 </div>
             </div>
             <div class="product">
-                <img src="prodotto1.jpg" alt="Prodotto 1">
-                <h3>Prodotto 4</h3>
-                <p class="price">€ 12,99</p>
+                <img src="assets/keychain_targhetta.jpg" alt="Prodotto 4">
+                <h3>Portachiavi in acciaio verniciato</h3>
+                <p class="price">€ 9,60</p>
                 <div class="description">
-                    Questo è un prodotto eccezionale con caratteristiche uniche e materiali di alta qualità. Perfetto
-                    per uso quotidiano.
+                  Portachiavi personalizzabile con incisione.
                 </div>
             </div>
         </div>
 
-        <!-- Sezione Contatti -->
-        <div class="contact-section" id="contatti">
-            <h2>Contatti</h2>
-            <p>
-                Per qualsiasi ordine o richiesta personalizzata, contattami direttamente su Instagram.
-            </p>
-            <a href="https://www.instagram.com/3d_printall/" target="_blank" class="instagram-btn">
-                📷 Vai al mio Instagram
-            </a>
+        <!-- Banner contatti fisso -->
+        <div class="contact-banner">
+            <span>💬 Per ordini e richieste scrivimi su </span>
+            <a href="https://www.instagram.com/3d_printall/" target="_blank">Instagram</a>
+            <span>o manda un'email a 3d.printall.contacts@gmail.com</span>
         </div>
     </div>
 
