@@ -83,7 +83,7 @@
         /* Griglia prodotti */
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
 
@@ -104,7 +104,7 @@
 
         .product img {
             width: 100%;
-            
+
             object-fit: cover;
         }
 
@@ -141,6 +141,7 @@
 
         /* Banner fisso contatti */
         .contact-banner {
+
             position: fixed;
             bottom: 0;
             left: 0;
@@ -165,6 +166,30 @@
             text-decoration: underline;
         }
 
+        .image-gallery {
+            width: 100%;
+            overflow-x: auto;
+            /* abilita scroll orizzontale */
+            scroll-snap-type: x mandatory;
+            /* scatta alla foto successiva */
+            -webkit-overflow-scrolling: touch;
+            /* fluido su iOS */
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 5px;
+            /* spazio tra le foto */
+        }
+
+        .gallery-track img {
+            flex: 0 0 100%;
+            /* ogni immagine occupa tutta la larghezza del contenitore */
+            max-width: 100%;
+            height: auto;
+            scroll-snap-align: start;
+            border-radius: 8px;
+        }
 
         @media (max-width: 768px) {
             .menu-btn {
@@ -209,11 +234,17 @@
         <h2>Vetrina Prodotti</h2>
         <div class="products">
             <div class="product">
-                <img src="assets/keychain_tondo.png" alt="Prodotto 1">
-                <h3>Portachiavi tondo - Acciaio lucido</h3>
-                <p class="price">€ 9,60</p>
+                <div class="image-gallery">
+                    <div class="gallery-track">
+                        <img src="assets/keychain_tondo.png" alt="Prodotto 1 - key1">
+                        <img src="assets/keychain_targa.png" alt="Prodotto 1 - key2">
+                        <img src="assets/keychain_cuore.png" alt="Prodotto 1 - key3">
+                    </div>
+                </div>
+                <h3>Portachiavi in Acciaio</h3>
+                <p class="price">da € 7,00</p>
                 <div class="description">
-                    Portachiavi personalizzabile con incisione. Diametro 3cm
+                    Portachiavi personalizzabili con incisione, varie forme e dimensioni
                 </div>
             </div>
             <div class="product">
@@ -237,7 +268,7 @@
                 <h3>Portachiavi in acciaio verniciato</h3>
                 <p class="price">€ 9,60</p>
                 <div class="description">
-                  Portachiavi personalizzabile con incisione.
+                    Portachiavi personalizzabile con incisione.
                 </div>
             </div>
         </div>
