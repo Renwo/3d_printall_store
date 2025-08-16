@@ -5,214 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vetrina Prodotti</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background-color: #f8f9fa;
-            overflow-y: auto;
-            height: "100%";
-            padding-bottom: 60px;
-        }
-
-        /* Barra superiore */
-        .topbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 60px;
-            background: linear-gradient(90deg, #000101, #34495e);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 15px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-
-        .logo {
-            height: 40px;
-        }
-
-        .menu-btn {
-            font-size: 24px;
-            cursor: pointer;
-            display: none;
-            /* Mostrato solo su mobile */
-        }
-
-        /* Drawer laterale */
-        .drawer {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 250px;
-            height: 100%;
-            background: #34495e;
-            padding-top: 20px;
-            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
-            transition: left 0.3s ease;
-        }
-
-        .drawer a {
-            display: block;
-            padding: 14px 20px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .drawer a:hover {
-            background: #34495e;
-        }
-
-        .drawer.closed {
-            left: -250px;
-        }
-
-        /* Contenuto principale */
-        .content {
-            margin-top: 30px;
-            margin-left: 250px;
-            padding: 20px;
-            transition: margin-left 0.3s ease;
-        }
-
-        /* Griglia prodotti */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .product {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.25s ease;
-        }
-
-
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .product img {
-            width: 100%;
-            min-height: 300px;
-            object-fit: cover;
-        }
-
-        .product h3 {
-            margin: 5px;
-            font-size: 15px;
-            color: #2c3e50;
-        }
-
-        .product p {
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 5px;
-            display: flex;
-            margin-right: 5px;
-            justify-content: flex-end;
-        }
-
-        .product .description {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 12px;
-            color: #555;
-        }
-
-        /* Quando la card è espansa */
-        .product.expanded .description {
-            max-height: 200px;
-            /* Altezza massima visibile */
-            padding: 12px;
-        }
-
-        /* Banner fisso contatti */
-        .contact-banner {
-
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
-            color: white;
-            text-align: center;
-            padding: 12px 15px;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
-            z-index: 2000;
-        }
-
-        .contact-banner a {
-            color: yellow;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact-banner a:hover {
-            text-decoration: underline;
-        }
-
-        .image-gallery {
-            width: 100%;
-            overflow-x: auto;
-            /* abilita scroll orizzontale */
-            scroll-snap-type: x mandatory;
-            /* scatta alla foto successiva */
-            -webkit-overflow-scrolling: touch;
-            /* fluido su iOS */
-        }
-
-        .gallery-track {
-            display: flex;
-            gap: 5px;
-            /* spazio tra le foto */
-        }
-
-        .gallery-track img {
-            flex: 0 0 100%;
-            /* ogni immagine occupa tutta la larghezza del contenitore */
-            max-width: 100%;
-            height: auto;
-            scroll-snap-align: start;
-            border-radius: 8px;
-        }
-
-        @media (max-width: 768px) {
-            .menu-btn {
-                display: block;
-            }
-
-            .drawer {
-                left: -250px;
-            }
-
-            .drawer.open {
-                left: 0;
-            }
-
-            .content {
-                margin-left: 0;
-            }
-
-            .products {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css"> <!-- Collega lo stile -->
 </head>
 
 <body>
@@ -236,9 +29,18 @@
             <div class="product">
                 <div class="image-gallery">
                     <div class="gallery-track">
-                        <img src="assets/keychain_tondo.png" alt="Prodotto 1 - key1">
-                        <img src="assets/keychain_targa.png" alt="Prodotto 1 - key2">
-                        <img src="assets/keychain_cuore.png" alt="Prodotto 1 - key3">
+                        <div class="image-slide">
+                            <img src="assets/keychain_tondo.png" alt="Prodotto 1 - key1">
+                            <button class="zoom-btn" data-img="assets/keychain_tondo.png">🔍</button>
+                        </div>
+                        <div class="image-slide">
+                            <img src="assets/keychain_targa.png" alt="Prodotto 1 - key2">
+                            <button class="zoom-btn" data-img="assets/keychain_targa.png">🔍</button>
+                        </div>
+                        <div class="image-slide">
+                            <img src="assets/keychain_cuore.png" alt="Prodotto 1 - key3">
+                            <button class="zoom-btn" data-img="assets/keychain_cuore.png">🔍</button>
+                        </div>
                     </div>
                 </div>
                 <h3>Portachiavi in Acciaio</h3>
@@ -248,7 +50,19 @@
                 </div>
             </div>
             <div class="product">
-                <img src="assets/watch_stand.png" alt="Prodotto 2">
+               <div class="image-gallery">
+                    <div class="gallery-track">
+                        <div class="image-slide">
+                            <img src="assets/watch_stand.png" alt="Prodotto 1 - key1">
+                            <button class="zoom-btn" data-img="assets/watch_stand.png">🔍</button>
+                        </div>
+                        <div class="image-slide">
+                            <img src="assets/keychain_targa.png" alt="Prodotto 1 - key2">
+                            <button class="zoom-btn" data-img="assets/keychain_targa.png">🔍</button>
+                        </div>
+                       
+                    </div>
+                </div>
                 <h3>Supporto orologio con inserti in pelle</h3>
                 <p class="price">€ 12,00</p>
                 <div class="description">
@@ -273,6 +87,11 @@
             </div>
         </div>
 
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="zoomedImg">
+        </div>
+
         <!-- Banner contatti fisso -->
         <div class="contact-banner">
             <span>💬 Per ordini e richieste scrivimi su </span>
@@ -288,6 +107,27 @@
                 card.classList.toggle('expanded');
             });
         });
+
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("zoomedImg");
+        const closeBtn = document.querySelector(".modal .close");
+
+        // Aggiungo evento click a tutti i bottoni zoom
+        document.querySelectorAll(".zoom-btn").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation(); // 🔥 blocca il click sulla card
+                modal.style.display = "block";
+                modalImg.src = btn.getAttribute("data-img");
+            });
+        });
+
+        // Chiudi al click sulla X
+        closeBtn.onclick = () => modal.style.display = "none";
+
+        // Chiudi al click fuori dall'immagine
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.style.display = "none";
+        }
     </script>
 
 </body>
